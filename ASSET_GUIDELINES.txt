@@ -1,0 +1,215 @@
+================================================================================
+                    PORTFOLIO ASSET & MEDIA SPECIFICATIONS
+================================================================================
+
+This document details every photo, video, aspect ratio, recommended resolution,
+file path, and how to update video player credits for your portfolio.
+
+All image and video assets are located inside the `public/assets/` directory.
+When you replace a file with the same filename, it will automatically update across
+the entire site.
+
+--------------------------------------------------------------------------------
+1. HOME / HERO SCREEN (HOLD TO SWITCH PORTRAITS)
+--------------------------------------------------------------------------------
+On the home page, holding down the clicker triggers a WebGL shader transition 
+between these background photos.
+
+- File: public/assets/images/hero-1.jpg
+  * Purpose: Home Hero Portrait 1 (Initial view)
+  * Aspect Ratio: 16:9 or 16:10 (Landscape / Fullscreen)
+  * Ideal Resolution: 1920x1080 px (or 2560x1440 px)
+  * Guidance: Clean cinematic portrait / stage shot with dark background for 
+    sharp contrast with the white typography.
+
+- File: public/assets/images/hero-2.jpg
+  * Purpose: Home Hero Portrait 2 (Switched view 1)
+  * Aspect Ratio: 16:9 or 16:10
+  * Ideal Resolution: 1920x1080 px
+
+- File: public/assets/images/hero-3.jpg
+  * Purpose: Home Hero Portrait 3 (Switched view 2)
+  * Aspect Ratio: 16:9 or 16:10
+  * Ideal Resolution: 1920x1080 px
+
+--------------------------------------------------------------------------------
+2. FULL-SCREEN NAVIGATION MENU (5-CARD CURVED VERTICAL WHEEL)
+--------------------------------------------------------------------------------
+When the menu overlay opens, these 5 preview cards form the vertical curved carousel
+on the left side.
+
+- File: public/assets/menu/menu-1.jpg
+  * Purpose: Menu Card 1 ("Music" link preview)
+  * Aspect Ratio: 5:6 or 3:4 (Portrait)
+  * Ideal Resolution: 800x960 px (or 1200x1440 px)
+  * Guidance: Vertical portrait / guitar / instrument shot.
+
+- File: public/assets/menu/menu-2.jpg
+  * Purpose: Menu Card 2 ("Videos" link preview)
+  * Aspect Ratio: 5:6 or 3:4
+  * Ideal Resolution: 800x960 px
+  * Guidance: Cinematic video shoot / film still.
+
+- File: public/assets/menu/menu-3.jpg
+  * Purpose: Menu Card 3 ("Shows" link preview)
+  * Aspect Ratio: 5:6 or 3:4
+  * Ideal Resolution: 800x960 px
+  * Guidance: Live event / stage hosting moment.
+
+- File: public/assets/menu/menu-4.jpg
+  * Purpose: Menu Card 4 ("About" link preview)
+  * Aspect Ratio: 5:6 or 3:4
+  * Ideal Resolution: 800x960 px
+  * Guidance: Studio portrait / press photo.
+
+- File: public/assets/menu/menu-5.jpg
+  * Purpose: Menu Card 5 (Atmospheric loop photo)
+  * Aspect Ratio: 5:6 or 3:4
+  * Ideal Resolution: 800x960 px
+  * Guidance: Aesthetic atmosphere shot completing the 5-card carousel.
+
+--------------------------------------------------------------------------------
+3. VIDEOS / REELS PAGE & FULLSCREEN PLAYER (WITH CREDITS)
+--------------------------------------------------------------------------------
+The Videos page features a 3D WebGL barrel-distortion horizontal slider leading to
+a fullscreen player with custom controls and a sliding Credits panel.
+
+VIDEO FILES:
+- File: public/assets/videos/video-1-cover.mp4 (or CDN URL)
+  * Purpose: Video 1 short preview loop in the horizontal slider
+  * Format: H.264 MP4 (Muted loop, 3-10 seconds)
+  * Aspect Ratio: 16:9 (1920x1080 or 1280x720 px)
+
+- File: public/assets/videos/video-1.mp4 (or CDN URL)
+  * Purpose: Video 1 full video played in fullscreen player
+  * Format: H.264 MP4 (With AAC audio)
+  * Aspect Ratio: 16:9 (1920x1080 px)
+
+- File: public/assets/videos/video-2-cover.mp4 (or CDN URL)
+  * Purpose: Video 2 short preview loop
+
+- File: public/assets/videos/video-2.mp4 (or CDN URL)
+  * Purpose: Video 2 full video
+
+HOW & WHERE TO UPDATE VIDEO CREDITS & METADATA:
+File to edit: `src/pages/Videos.js` (lines 10 - 33)
+
+You can customize the titles, durations, video URLs, and credits object:
+
+```javascript
+this.videosData = [
+  {
+    title: 'Show Highlight Reel',
+    duration: '02:04',
+    coverVideo: '/assets/videos/video-1-cover.mp4', // or your CDN URL
+    fullVideo: '/assets/videos/video-1.mp4',        // or your CDN URL
+    poster: '/assets/images/hero-1.jpg',
+    credits: {
+      director: 'Directed by John Doe',
+      dop: 'Director of Photography: Jane Smith',
+      editor: 'Edited by Alex Rivera',
+      producedBy: 'Produced by Event Studio'
+    }
+  },
+  {
+    title: 'Corporate Gala Anchor',
+    duration: '02:49',
+    coverVideo: '/assets/videos/video-2-cover.mp4',
+    fullVideo: '/assets/videos/video-2.mp4',
+    poster: '/assets/images/hero-2.jpg',
+    credits: {
+      director: 'Directed by Michael Bay',
+      dop: 'Director of Photography: Tyler Barks',
+      host: 'Anchor: Shahid'
+    }
+  }
+];
+```
+
+The fullscreen video player will dynamically populate the sliding "Credits" drawer
+whenever the viewer clicks the "Credits" button on the bottom left.
+
+--------------------------------------------------------------------------------
+4. MUSIC / HOSTING / RELEASES PAGE
+--------------------------------------------------------------------------------
+Features a 3D stacked card deck with live interactive music player and mini map.
+
+- File: public/assets/images/music-1.jpg
+  * Purpose: Track 1 Cover Art ("diet coke")
+  * Aspect Ratio: 1:1 (Square)
+  * Ideal Resolution: 1000x1000 px (or 1440x1440 px)
+
+- File: public/assets/images/music-2.jpg
+  * Purpose: Track 2 Cover Art ("rocket to mars")
+  * Aspect Ratio: 1:1 (Square)
+  * Ideal Resolution: 1000x1000 px
+
+- File: public/assets/images/music-3.jpg
+  * Purpose: Track 3 Cover Art ("miss kyoto")
+  * Aspect Ratio: 1:1 (Square)
+  * Ideal Resolution: 1000x1000 px
+
+- File: public/assets/images/music-4.jpg
+  * Purpose: Track 4 Cover Art ("CANON")
+  * Aspect Ratio: 1:1 (Square)
+  * Ideal Resolution: 1000x1000 px
+
+--------------------------------------------------------------------------------
+5. SHOWS / EVENTS PAGE
+--------------------------------------------------------------------------------
+Horizontal scroll gallery pairing event dates and ticket/booking links with visuals.
+
+- File: public/assets/images/shows-1.jpg
+  * Purpose: Show 1 Event Visual
+  * Aspect Ratio: 2:3 (Vertical) or 16:9 (Landscape)
+  * Ideal Resolution: 1200x1800 px or 1920x1080 px
+
+- File: public/assets/images/shows-2.jpg
+  * Purpose: Show 2 Event Visual
+  * Aspect Ratio: 2:3 or 16:9
+  * Ideal Resolution: 1200x1800 px or 1920x1080 px
+
+--------------------------------------------------------------------------------
+6. ABOUT PAGE (BIOGRAPHY & STORY SECTIONS)
+--------------------------------------------------------------------------------
+Four scroll sections with smooth parallax depth.
+
+- File: public/assets/images/about-1.jpg
+  * Purpose: Section 1 Hero Portrait
+  * Aspect Ratio: 3:4 or 2:3 (Portrait)
+  * Ideal Resolution: 1200x1600 px
+
+- File: public/assets/images/about-2.jpg
+  * Purpose: Section 2 Hosting & Craft Section
+  * Aspect Ratio: 3:4 or 16:9
+  * Ideal Resolution: 1200x1600 px
+
+- File: public/assets/images/about-3.jpg
+  * Purpose: Section 3 Inspiration & Values Section
+  * Aspect Ratio: 3:4 or 2:3
+  * Ideal Resolution: 1200x1800 px
+
+- File: public/assets/images/about-4.jpg
+  * Purpose: Section 4 Quote & Philosophy Section
+  * Aspect Ratio: 3:4 or 16:9
+  * Ideal Resolution: 1200x1600 px
+
+--------------------------------------------------------------------------------
+7. NEWSLETTER MODAL
+--------------------------------------------------------------------------------
+Triggered by clicking newsletter links in the footer or announcement badge.
+
+- File: public/assets/images/newsletter.jpg
+  * Purpose: Newsletter popup image on the left
+  * Aspect Ratio: 3:4 (Vertical)
+  * Ideal Resolution: 630x868 px (or 800x1100 px)
+
+--------------------------------------------------------------------------------
+GENERAL ASSET RECOMMENDATIONS:
+--------------------------------------------------------------------------------
+- Image File Format: JPEG (.jpg) with sRGB color profile, quality 85-92%
+  (or WebP for faster delivery).
+- Video File Format: MP4 (H.264 codec, AAC audio, web-optimized fast-start).
+- File Naming: Keep exact filenames listed above so replacing them updates the site
+  instantly without modifying any code.
+================================================================================
